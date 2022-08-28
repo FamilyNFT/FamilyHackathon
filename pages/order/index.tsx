@@ -1,7 +1,7 @@
 import React from "react";
 import NFTCard from "../../components/NFTCard";
 
-function Index() {
+const Index = () => {
   const colors = [
     {
       color: "Blue",
@@ -38,6 +38,6 @@ function Index() {
       </div>
     </div>
   );
-}
+};
 
 export default Index;
