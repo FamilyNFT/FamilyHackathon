@@ -25,10 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/inventory": [
+    "/marketplace": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/inventory.js"
+      "static/chunks/pages/marketplace.js"
+    ],
+    "/nftdetail": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/nftdetail.js"
     ]
   },
   "ampFirstPages": []

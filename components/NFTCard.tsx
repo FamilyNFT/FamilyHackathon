@@ -44,12 +44,22 @@ function NFTCard({ color, data }: { color: number; data: any }) {
       size: "Demo",
       color: data.color,
     });
-    const jsonUri = await storeJson(json);
+    // const jsonUri = await storeJson(json);
     // console.log(await contract().balanceOf(wallet));
-    const hash = await contract().mint(wallet, jsonUri);
-    alert(`Minted Succesfully at hash ${hash}`);
+    // const hash = await contract().mint(wallet, jsonUri);
+    // alert(`Minted Succesfully at hash ${hash}`);
+    alert("nft transfer is under proccess");
   };
 
+  const handlePending = (e) => {
+    e.preventDefault();
+    alert("pending");
+  };
+
+  const handleConfirmed = (e) => {
+    e.preventDefault();
+    alert("confimed");
+  };
   return (
     <div className="flex items-center justify-center flex-col rounded-lg border-4 border-white p-4 w-full max-w-[380px]">
       <video
@@ -97,10 +107,16 @@ function NFTCard({ color, data }: { color: number; data: any }) {
           {contextState.stocks.length > 0 &&
             contextState.stocks[color][selectedSize]}
           <button
-            onClick={() => handleMint()}
-            className="text-base text-white ml-2 bg-blue-400 px-5 py-2.4 rounded"
+            onClick={handlePending}
+            className="text-base text-white ml-2 bg-blue-400 px-2 py-2.4 rounded"
           >
-            Order
+            pending
+          </button>
+          <button
+            onClick={handleConfirmed}
+            className="text-base text-white ml-2 bg-blue-400 px-2 py-2.4 rounded"
+          >
+            confrimed
           </button>
         </span>
       </div>
