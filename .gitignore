@@ -8,7 +8,8 @@
 .pnp.js
 package-lock.json
 .env
-
+/.next
+.next
 # testing
 /coverage
 
