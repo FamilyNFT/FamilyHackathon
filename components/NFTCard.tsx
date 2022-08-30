@@ -44,11 +44,13 @@ function NFTCard({ color, data }: { color: number; data: any }) {
       size: "Demo",
       color: data.color,
     });
-    // const jsonUri = await storeJson(json);
-    // console.log(await contract().balanceOf(wallet));
-    // const hash = await contract().mint(wallet, jsonUri);
-    // alert(`Minted Succesfully at hash ${hash}`);
-    alert("nft transfer is under proccess");
+    const jsonUri = await storeJson(json);
+    const supply = await contract().methods.tokenIdsOf(wallet).call();
+    console.log(supply);
+    const hash = await contract()
+      .methods.mint(wallet, jsonUri)
+      .send({ from: wallet });
+    alert(`Minted Succesfully at hash ${hash}`);
   };
 
   const handlePending = (e) => {
@@ -58,6 +60,7 @@ function NFTCard({ color, data }: { color: number; data: any }) {
 
   const handleConfirmed = (e) => {
     e.preventDefault();
+    handleMint();
     alert("confimed");
   };
   return (
@@ -106,17 +109,17 @@ function NFTCard({ color, data }: { color: number; data: any }) {
         <span className="text-xl tracking-tighter text-yellow-400 ">
           {contextState.stocks.length > 0 &&
             contextState.stocks[color][selectedSize]}
-          <button
+          {/* <button
             onClick={handlePending}
             className="text-base text-white ml-2 bg-blue-400 px-2 py-2.4 rounded"
           >
             pending
-          </button>
+          </button> */}
           <button
             onClick={handleConfirmed}
             className="text-base text-white ml-2 bg-blue-400 px-2 py-2.4 rounded"
           >
-            confrimed
+            Order
           </button>
         </span>
       </div>
