@@ -30,16 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/inventory.js"
     ],
-    "/marketplace": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/marketplace.js"
-    ],
-    "/nftdetail": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/nftdetail.js"
-    ],
     "/order": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

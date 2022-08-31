@@ -33,7 +33,6 @@ const descriptions = [
 function InventoryNFTCard({ color, data }: { color: number; data: any }) {
   const { contextState, setContextState } = useContext(AppContext);
   const [selectedSize, setSelectedSize] = useState(0);
-  const { contract } = useContract();
   const { wallet } = useWalletContext();
   const [toggle, setToggle] = useState(false);
   const { storeJson } = useStorage();
@@ -44,26 +43,25 @@ function InventoryNFTCard({ color, data }: { color: number; data: any }) {
   return (
     <div>
       <div className="flex items-center justify-center flex-col rounded-lg border-4 border-white p-4 w-full max-w-[380px]">
+        {/* {console.log(color)} */}
         <video
-          src={"/assets/tees/" + data.color + ".mp4"}
+          src={"/assets/tees/" + color + ".mp4"}
           autoPlay
           loop
           muted
           className="w-48"
         ></video>
         <div>
-          <span className="text-xl mt-4 text-red-500">{data.color}</span>
+          {/* <span className="text-xl mt-4 text-red-500">{data.color}</span> */}
 
-          <div className="flex flex-col ">
-            {descriptions.map((desc, index) => (
-              <div className="flex items-center" key={index}>
-                <div className="w-2 h-2 rounded-full bg-red-600 mr-2"></div>
-                <span className="text-white font-lato text-sm">{desc}</span>
-              </div>
-            ))}
+          <div className="flex flex-col  mt-3">
+            <div className="flex items-center text-white">
+              Drop:
+              <span className="text-white font-lato text-sm">{data?.drop}</span>
+            </div>
           </div>
         </div>
-        <div className="flex items-center justify-between space-x-2 w-full pt-4">
+        {/* <div className="flex items-center justify-between space-x-2 w-full pt-4">
           {sizes.map((size, index) => (
             <div
               key={index}
@@ -77,14 +75,14 @@ function InventoryNFTCard({ color, data }: { color: number; data: any }) {
               {size}
             </div>
           ))}
-        </div>
-        <div className="flex items-center justify-between py-4 w-full">
-          <span
+        </div> */}
+        <div className="flex items-center justify-center py-4 w-full">
+          {/* <span
             className="text-blue-600 text-sm tracking-[-0.1em] cursor-pointer hover:text-blue-400"
             onClick={() => setToggle(true)}
           >
             Size Chart
-          </span>
+          </span> */}
           <span className="text-xl tracking-tighter text-yellow-400 ">
             {contextState.stocks.length > 0 &&
               contextState.stocks[color][selectedSize]}

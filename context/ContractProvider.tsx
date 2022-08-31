@@ -20,10 +20,9 @@ function ContractProvider({ children }: { children: ReactNode }) {
     const web3 = new Web3(ethereum);
     const contract = new web3.eth.Contract(
       NFTabi.abi,
-      "0x671Db2DF8B8eAE9344F639387d57B0Dfc1Ab8b16"
+      "0xA9a903a5C00B8898c3Da43B370B11F5bFA0D9A77"
     );
 
-    return contract;
     return contract;
   }, []);
   const values = useMemo(() => ({ contract }), []);

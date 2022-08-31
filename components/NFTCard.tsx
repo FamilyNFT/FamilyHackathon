@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { ReactEventHandler, useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { useContract } from "../context/ContractProvider";
 import { useWalletContext } from "../context/WalletContext";
@@ -53,12 +53,12 @@ function NFTCard({ color, data }: { color: number; data: any }) {
     alert(`Minted Succesfully at hash ${hash}`);
   };
 
-  const handlePending = (e) => {
+  const handlePending = (e: any) => {
     e.preventDefault();
     alert("pending");
   };
 
-  const handleConfirmed = (e) => {
+  const handleConfirmed = (e: any) => {
     e.preventDefault();
     handleMint();
     alert("confimed");

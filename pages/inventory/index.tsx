@@ -1,7 +1,50 @@
-import React from "react";
+import axios from "axios";
+import React, { useCallback, useEffect, useState } from "react";
 import InventoryNFTCard from "../../components/InventoryNFTCard copy";
+import { useContract } from "../../context/ContractProvider";
+import { useWalletContext } from "../../context/WalletContext";
 
 const Index = () => {
+  const [tokenIds, setTokenIds] = useState<string[]>([]);
+  const [tokenMetadata, setTokenMeta] = useState<any[]>([]);
+  const { contract } = useContract();
+  const { wallet } = useWalletContext();
+  const getData = useCallback(async (id) => {
+    let metadata = contract()
+      .methods.getMetadata(id)
+      .call()
+      .then((metadataUri: string) => {
+        console.log(metadataUri);
+        const data = axios
+          .get(metadataUri)
+          .then((response: any) => response.data);
+        return data;
+      });
+    return metadata;
+  }, []);
+  useEffect(() => {
+    if (wallet) {
+      let arr: any[] = [];
+      contract()
+        .methods.tokenIdsOf(wallet)
+        .call()
+        .then((ids: string[]) => {
+          setTokenIds(ids);
+          for (let i in ids) {
+            getData(ids[i]).then((res) => {
+              let data = res;
+              arr.push(data);
+            });
+          }
+        })
+        .catch(() => setTokenIds([]));
+      console.log(arr);
+      setTokenMeta(arr);
+    } else {
+      setTokenIds([]);
+    }
+  }, [wallet]);
+
   const colors = [
     {
       color: "Blue",
@@ -32,8 +75,9 @@ const Index = () => {
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <div className="grid py-10 md:grid-cols-4 gap-5">
-        {colors.map((item, index) => {
-          return <InventoryNFTCard data={item} color={index} />;
+        {tokenMetadata.map((item, index) => {
+          console.log(item);
+          return <InventoryNFTCard data={item} color={item.color} />;
         })}
       </div>
     </div>
