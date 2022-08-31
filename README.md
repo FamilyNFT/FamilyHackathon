@@ -36,7 +36,7 @@ This hackathon submission is simply a MVP, with still alot of things missing:
 
 - Garment Identifiers Interaction: Our unique identifiers attached to the garment will be integrated with our infrastructure to further minimise counterfeits from entering our ecosystem
 
-- Chat Feature: A chat function will be added to allow community members to communicate to each other whilst during a trade
+- Chat Feature: A chat function will be added to allow community members to communicate to each other during a trade
 
 - Building Shopify Plugin: Since the LUKSO team is busy with the mainnet launch, we’ll be building out LUKSO’s shopify plugin so that we can use it for our minting page on mainnet launch
 
