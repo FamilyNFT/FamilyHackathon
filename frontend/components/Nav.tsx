@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useWalletContext } from "../context/WalletContext";
 export default function Nav() {
   const { contextState, setContextState } = useContext(AppContext);
-  const { wallet, connectWallet } = useWalletContext();
+  const { wallet, connectWallet }:any = useWalletContext();
   // async function connectWallet() {
   //   const { ethereum } = window as any;
   //   if (!ethereum) {
