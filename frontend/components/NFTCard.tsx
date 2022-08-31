@@ -33,13 +33,13 @@ function NFTCard({ color, data }: { color: number; data: any }) {
   const { contextState, setContextState } = useContext(AppContext);
   const [selectedSize, setSelectedSize] = useState(0);
   const { contract } = useContract();
-  const { wallet }:any = useWalletContext();
+  const { wallet }: any = useWalletContext();
   const [toggle, setToggle] = useState(false);
   const { storeJson } = useStorage();
   const handleMint = async () => {
     const json = JSON.stringify({
       drop: "Hackathon Test",
-      minter: "wallet",
+      minter: wallet,
       type: "Jumper",
       size: "Demo",
       color: data.color,
@@ -60,8 +60,11 @@ function NFTCard({ color, data }: { color: number; data: any }) {
 
   const handleConfirmed = (e: any) => {
     e.preventDefault();
-    handleMint();
-    alert("confimed");
+    if (wallet) {
+      handleMint();
+    } else {
+      alert("connect wallet");
+    }
   };
   return (
     <div className="flex items-center justify-center flex-col rounded-lg border-4 border-white p-4 w-full max-w-[380px]">

@@ -7,6 +7,7 @@ import { useWalletContext } from "../../context/WalletContext";
 const Index = () => {
   const [tokenIds, setTokenIds] = useState<string[]>([]);
   const [tokenMetadata, setTokenMeta] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const { contract } = useContract();
   const { wallet }: any = useWalletContext();
   const getData = useCallback(async (id) => {
@@ -22,26 +23,23 @@ const Index = () => {
       });
     return metadata;
   }, []);
+  const getMetadata = useCallback(async () => {
+    let arr: any[] = [];
+    let metadata = await contract().methods.tokenIdsOf(wallet).call();
+    setTokenIds(metadata);
+    for (let i in metadata) {
+      let data = await getData(metadata[i]);
+      arr.push(data);
+    }
+    setTokenMeta(arr);
+  }, [wallet, setTokenIds]);
   useEffect(() => {
     if (wallet) {
-      let arr: any[] = [];
-      contract()
-        .methods.tokenIdsOf(wallet)
-        .call()
-        .then((ids: string[]) => {
-          setTokenIds(ids);
-          for (let i in ids) {
-            getData(ids[i]).then((res) => {
-              let data = res;
-              arr.push(data);
-            });
-          }
-        })
-        .catch(() => setTokenIds([]));
-      console.log(arr);
-      setTokenMeta(arr);
+      getMetadata();
+      setLoading(false);
     } else {
       setTokenIds([]);
+      setLoading(false);
     }
   }, [wallet]);
 
@@ -74,12 +72,16 @@ const Index = () => {
   ];
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center">
-      <div className="grid py-10 md:grid-cols-4 gap-5">
-        {tokenMetadata.map((item, index) => {
-          console.log(item);
-          return <InventoryNFTCard data={item} color={item.color} />;
-        })}
-      </div>
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <div className="grid py-10 md:grid-cols-4 gap-5">
+          {tokenMetadata.map((item, index) => {
+            console.log(item);
+            return <InventoryNFTCard data={item} color={item.color} />;
+          })}
+        </div>
+      )}
     </div>
   );
 };

@@ -33,7 +33,7 @@ const descriptions = [
 function InventoryNFTCard({ color, data }: { color: number; data: any }) {
   const { contextState, setContextState } = useContext(AppContext);
   const [selectedSize, setSelectedSize] = useState(0);
-  const { wallet }:any = useWalletContext();
+  const { wallet }: any = useWalletContext();
   const [toggle, setToggle] = useState(false);
   const { storeJson } = useStorage();
   const handleListForSale = async () => {
@@ -42,7 +42,7 @@ function InventoryNFTCard({ color, data }: { color: number; data: any }) {
 
   return (
     <div>
-      <div className="flex items-center justify-center flex-col rounded-lg border-4 border-white p-4 w-full max-w-[380px]">
+      <div className="flex items-center justify-center flex-col rounded-lg border-4 border-white p-4 w-full max-w-[300px]">
         {/* {console.log(color)} */}
         <video
           src={"/assets/tees/" + color + ".mp4"}
@@ -56,39 +56,29 @@ function InventoryNFTCard({ color, data }: { color: number; data: any }) {
 
           <div className="flex flex-col  mt-3">
             <div className="flex items-center text-white">
-              Drop:
-              <span className="text-white font-lato text-sm">{data?.drop}</span>
+              {`Drop: ${data.drop}`}
+            </div>
+            <div className="flex items-center break-all text-white">
+              {`Minter: ${data.minter.slice(0, 5)}`}
+            </div>
+            <div className="flex items-center break-all text-white">
+              {`Color: ${data.color}`}
+            </div>
+            <div className="flex items-center break-all text-white">
+              {`Size: ${data.size}`}
+            </div>
+            <div className="flex items-center break-all text-white">
+              {`Type: ${data.type}`}
             </div>
           </div>
         </div>
-        {/* <div className="flex items-center justify-between space-x-2 w-full pt-4">
-          {sizes.map((size, index) => (
-            <div
-              key={index}
-              onClick={() => setSelectedSize(index)}
-              className={`text-white py-1 px-2 cursor-pointer ${
-                selectedSize == index
-                  ? "bg-blue-500"
-                  : "bg-gray-800 hover:bg-gray-900"
-              } flex-1 text-center`}
-            >
-              {size}
-            </div>
-          ))}
-        </div> */}
         <div className="flex items-center justify-center py-4 w-full">
-          {/* <span
-            className="text-blue-600 text-sm tracking-[-0.1em] cursor-pointer hover:text-blue-400"
-            onClick={() => setToggle(true)}
-          >
-            Size Chart
-          </span> */}
           <span className="text-xl tracking-tighter text-yellow-400 ">
             {contextState.stocks.length > 0 &&
               contextState.stocks[color][selectedSize]}
             <button
               onClick={() => handleListForSale()}
-              className="text-base text-white ml-2 bg-blue-400 px-5 py-2.4 rounded"
+              className="text-base text-white ml-2 bg-blue-500 px-5 py-2 rounded"
             >
               List For sale
             </button>

@@ -16,7 +16,7 @@ const config = { ipfsGateway: IPFS_GATEWAY };
 const walletContext = createContext({});
 
 function WalletProvider({ children }: walletProviderProps) {
-  const [wallet, setWallet] = useState<string>("");
+  const [wallet, setWallet] = useState<string>();
   async function getProfile(address: string) {
     try {
       const profile = new ERC725(
