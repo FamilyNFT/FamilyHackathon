@@ -7,7 +7,6 @@ import { ethers } from "ethers";
 import { AppContext } from "../context/AppContext";
 import Nav from "../components/Nav";
 import Hero from "../components/pages/home/Hero";
-import Mint from "../components/pages/home/Mint";
 import Footer from "../components/pages/home/Footer";
 import { FAMILY_ABI, FAMILY_ADDRESS } from "../utils/contracts/FamilyContract";
 import {
