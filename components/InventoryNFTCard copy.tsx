@@ -33,7 +33,6 @@ const descriptions = [
 function InventoryNFTCard({ color, data }: { color: number; data: any }) {
   const { contextState, setContextState } = useContext(AppContext);
   const [selectedSize, setSelectedSize] = useState(0);
-  const { wallet } = useWalletContext();
   const [toggle, setToggle] = useState(false);
   const { storeJson } = useStorage();
   const handleListForSale = async () => {
