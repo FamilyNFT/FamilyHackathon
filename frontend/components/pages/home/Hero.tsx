@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-
+import intro from "../../../assets/bannerImg.mp4";
 function Hero() {
   return (
     <div className="flex flex-col-reverse lg:flex-row items-center justify-center  min-h-screen text-white">
@@ -34,7 +34,7 @@ function Hero() {
       <div className="flex flex-1 items-end flex-col">
         <video
           className="max-h-[500px] w-[90%] border-2 border-white rounded-md"
-          src="/assets/tees/hero 7.mp4"
+          src="/assets/bannerImg.mp4"
           controls
           autoPlay
           loop
