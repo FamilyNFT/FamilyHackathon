@@ -106,7 +106,7 @@ const Home: NextPage = () => {
         </div> */}
         {/* <Mint /> */}
         {/* <Footer /> */}
-        <div className="w-full text-white py-10">
+        {/* <div className="w-full text-white py-10">
           <h1 className="text-4xl mb-10 font-bold">Products</h1>
           <div className="grid mx-auto w-[80%] md:w-full md:grid-cols-2 lg:grid-cols-4 w-full gap-10">
             {products.map(({ name, image, properties }) => {
@@ -119,7 +119,7 @@ const Home: NextPage = () => {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </main>
       <Popup>
         <PopupBody />

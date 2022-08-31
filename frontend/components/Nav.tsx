@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useWalletContext } from "../context/WalletContext";
 export default function Nav() {
   const { contextState, setContextState } = useContext(AppContext);
-  const { wallet, connectWallet }:any = useWalletContext();
+  const { wallet, connectWallet }: any = useWalletContext();
   // async function connectWallet() {
   //   const { ethereum } = window as any;
   //   if (!ethereum) {
@@ -25,9 +25,10 @@ export default function Nav() {
     <div className="flex items-center sticky-top bg-black justify-between w-full py-4 px-5 lg:px-16 top-0">
       <h1 className="text-xl lg:text-3xl text-white">FamilyNFT</h1>
       <div className="md:flex hidden gap-5 text-lg text-white">
-        <Link href={"/order"}>Order</Link>
+        <Link href={"/store"}>Store</Link>
         <Link href={"/inventory"}>Inventory</Link>
         <Link href={"/marketplace"}>Marketplace</Link>
+        <Link href={"/order"}>Order</Link>
       </div>
       {wallet ? (
         <div className="text-white">{trimAddress(wallet)}</div>
