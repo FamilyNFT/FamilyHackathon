@@ -24,7 +24,9 @@ Marketplace:
 
 Community members can then use our marketplace to safely trade/sell their Phygital assets. We’ve added an escrow feature on our marketplace to act as middleman between two parties whilst the physical garment is in transit to the buyer
 
-This escrow smart contract will implement our Royalties utility and also update the “History” metadata of our NFTs                
+This escrow smart contract will implement our Royalties utility and also update the “History” metadata of our NFTs
+
+Video Demo:
 
 # Hackathon MVP
 This hackathon submission is simply a MVP, with still alot of things missing:
@@ -41,5 +43,3 @@ This hackathon submission is simply a MVP, with still alot of things missing:
 - "Auction" Feature: We’ll allow community members to auction their phygital assets in the near future
 
 - Using other NFTs/Tokens as payment: Allow community members to use other forms of payment apart from $LYX
-
-Video Demo:
