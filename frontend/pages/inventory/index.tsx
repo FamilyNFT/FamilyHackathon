@@ -8,7 +8,7 @@ const Index = () => {
   const [tokenIds, setTokenIds] = useState<string[]>([]);
   const [tokenMetadata, setTokenMeta] = useState<any[]>([]);
   const { contract } = useContract();
-  const { wallet } = useWalletContext();
+  const { wallet }: any = useWalletContext();
   const getData = useCallback(async (id) => {
     let metadata = contract()
       .methods.getMetadata(id)
