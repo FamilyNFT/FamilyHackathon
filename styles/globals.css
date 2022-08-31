@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+
+@font-face {
+  font-family: "halloweek";
+  src: url("/assets/fonts/halloweek/halloweek-webfont.woff2") format("woff2"),
+    url("/assets/fonts/halloweek/halloweek-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hero {
+  background-image: url("/assets/images/bg.svg");
+}
+
+@media (max-width: 640px) {
+  .hero {
+    background-image: url("/assets/images/bg-mob.png");
+  }
+}
+
+.stroked {
+  /* -webkit-text-stroke-width: 0.06px;
+  -webkit-text-stroke-color: rgb(28, 10, 128); */
+  /* Fant-O-Lanterns */
+
+  color: #ff6f20;
+
+  text-shadow: 4px 3px 1px #f4eab1;
+}
