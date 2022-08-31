@@ -9,13 +9,14 @@ import StorageProvider from "../context/Web3StorageProvider";
 import ContractProvider from "../context/ContractProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const AnyComponent = Component as any;
   return (
     <AppContextProvider>
       <WalletProvider>
         <StorageProvider>
           <ContractProvider>
             <Layout>
-              <Component {...pageProps} />
+              <AnyComponent {...pageProps} />
             </Layout>
           </ContractProvider>
         </StorageProvider>
