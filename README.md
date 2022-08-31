@@ -1,5 +1,5 @@
 # Family
-We’re a Web3 Brand integrating LUKSO's new LSP standards with our luxury-streetwear garments to add provenance and royalties to our products.
+We’re a Web3 Brand integrating LUKSO's new LSP standards with our luxury-streetwear garments. Using LUKSO's new NFT standards, we'll be able to add provenance and royalties to our physical products.
 
 We’ve also created a Phygital marketplace, where the LUKSO community can safely trade phygital assets created in the LUKSO ecosystem
 
