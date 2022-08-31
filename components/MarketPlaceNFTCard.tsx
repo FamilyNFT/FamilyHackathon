@@ -42,7 +42,7 @@ function MarketPlaceNFTCard({ color, data }: { color: number; data: any }) {
 
   const router = useRouter();
 
-  const handleBuyNow = async (e) => {
+  const handleBuyNow = async (e: any) => {
     e.preventDefault();
     console.log("clicked");
 

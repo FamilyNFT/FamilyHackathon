@@ -61,7 +61,7 @@ function NFTCard({ color, data }: { color: number; data: any }) {
   const handleConfirmed = (e: any) => {
     e.preventDefault();
     handleMint();
-    alert("confimed");
+    // alert("confimed");
   };
   return (
     <div className="flex items-center justify-center flex-col rounded-lg border-4 border-white p-4 w-full max-w-[380px]">
