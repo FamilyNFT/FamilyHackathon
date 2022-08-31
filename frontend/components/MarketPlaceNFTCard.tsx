@@ -35,7 +35,7 @@ function MarketPlaceNFTCard({ color, data }: { color: number; data: any }) {
   const { contextState, setContextState } = useContext(AppContext);
   const [selectedSize, setSelectedSize] = useState(0);
   const { contract } = useContract();
-  const { wallet } = useWalletContext();
+  const { wallet }:any = useWalletContext();
   const [toggle, setToggle] = useState(false);
   const [nftId, setNftId] = useState(1);
   const { storeJson } = useStorage();
