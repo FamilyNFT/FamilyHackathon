@@ -33,7 +33,7 @@ function NFTCard({ color, data }: { color: number; data: any }) {
   const { contextState, setContextState } = useContext(AppContext);
   const [selectedSize, setSelectedSize] = useState(0);
   const { contract } = useContract();
-  const { wallet } = useWalletContext();
+  const { wallet }:any = useWalletContext();
   const [toggle, setToggle] = useState(false);
   const { storeJson } = useStorage();
   const handleMint = async () => {
