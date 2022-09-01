@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import intro from "../../../assets/bannerImg.mp4";
 function Hero() {
   return (
     <div className="flex flex-col-reverse lg:flex-row items-center justify-center  min-h-screen text-white">
