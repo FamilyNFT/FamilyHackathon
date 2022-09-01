@@ -39,10 +39,9 @@ function NFTCard({ color, data }: { color: number; data: any }) {
   const handleMint = async () => {
     const json = JSON.stringify({
       drop: "Hackathon Test",
-      minter: "Original Minter Address",
+      minter: wallet,
       type: "Jumper",
       size: "Demo",
-      history: "Garment History",
       color: data.color,
     });
     const jsonUri = await storeJson(json);
