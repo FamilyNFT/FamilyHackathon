@@ -7,8 +7,6 @@ function Hero() {
         <h1 className="text-5xl font-bold mb-8 text-red-400">
           The Home of Phygitals
         </h1>
-          </div>
-        </div>
       </div>
       <div className="flex flex-1 items-end flex-col">
         <video
