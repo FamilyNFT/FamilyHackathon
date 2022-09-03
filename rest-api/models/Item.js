@@ -1,18 +1,28 @@
-const mongoose = require("mongoose");
+const { DataTypes } = require("sequelize");
+const sequelize = require("../db");
 
-const ItemSchema = mongoose.Schema({
-  tokenId: {
-    type: String,
-    required: true,
+const Item = sequelize.define(
+  "Item",
+  {
+    // Model attributes are defined here
+    tokenId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    metadata: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    owner: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-  metadata: {
-    type: String,
-    required: true,
-  },
-  owner: {
-    type: String,
-    required: true,
-  },
-});
-
-module.exports = mongoose.model("Items", ItemSchema);
+  {
+    // Other model options go here
+  }
+);
+Item.sync().then(() =>
+  console.log("The table for the User model was just (re)created!")
+);
+module.exports = Item;
