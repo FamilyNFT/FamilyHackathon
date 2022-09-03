@@ -17,6 +17,10 @@ const Item = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
     // Other model options go here
