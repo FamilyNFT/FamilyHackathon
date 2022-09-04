@@ -1,9 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const DB_URI = require("./db");
+const cors = require("cors");
 
 //middlewares//
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
