@@ -11,4 +11,4 @@ app.use(express.urlencoded({ extended: true }));
 const itemsRoute = require("./routes/items");
 app.use("/items", itemsRoute);
 
-app.listen(3000, () => console.log("App is listening at port 3000"));
+app.listen(8080, () => console.log("App is listening at port 8080"));
