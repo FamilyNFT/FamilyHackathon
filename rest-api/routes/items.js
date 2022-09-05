@@ -39,6 +39,10 @@ router.post("/", async (req, response) => {
       metadata: req.body.metadata,
       owner: req.body.owner,
       price: req.body.price,
+      drop: req.body.drop,
+      size: req.body.size,
+      color: req.body.color,
+      type: req.body.type,
     });
     console.log(items);
     response.send(items);

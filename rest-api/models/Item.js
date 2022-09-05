@@ -17,6 +17,22 @@ const Item = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    color: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    drop: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    size: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
