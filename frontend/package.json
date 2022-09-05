@@ -2,6 +2,7 @@
   "name": "familynft",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http:127.0.0.1:8080",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,6 +15,7 @@
     "airtable": "^0.11.1",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
+    "corsproxy": "^1.5.0",
     "crypto-js": "^4.1.1",
     "ethers": "^5.4.5",
     "js-sha256": "^0.9.0",

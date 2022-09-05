@@ -37,6 +37,7 @@ function InventoryNFTCard({ color, data }: { color: number; data: any }) {
   const [toggle, setToggle] = useState(false);
   const { storeJson } = useStorage();
   const handleListForSale = async () => {
+    fetch("/items").then((res) => console.log(res.json()));
     alert("NFT listed for Sale Succesfully");
   };
 
