@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import MarketPlaceNFTCard from "../../components/MarketPlaceNFTCard";
 
 const Index = () => {
+  const [items, setItems] = useState([]);
+  const getData = useCallback(async () => {
+    let data = await fetch("/items").then((res) => res.json());
+    setItems(data);
+  }, [setItems]);
+  useEffect(() => {
+    getData();
+  }, [getData]);
   const colors = [
     {
       color: "Blue",
@@ -32,7 +40,7 @@ const Index = () => {
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <div className="grid py-10 md:grid-cols-4 gap-5">
-        {colors.map((item, index) => {
+        {items.map((item, index) => {
           return <MarketPlaceNFTCard data={item} color={index} />;
         })}
       </div>

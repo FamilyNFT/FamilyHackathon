@@ -6,6 +6,7 @@ import { useStorage } from "../context/Web3StorageProvider";
 import { buyFamily } from "../utils/functions/FamilyFunctions";
 import { Popup, Popup2 } from "./Popup";
 import Router from "next/router";
+import axios from "axios";
 
 type Meta = {
   name: string;
@@ -37,7 +38,7 @@ function InventoryNFTCard({ color, data }: { color: number; data: any }) {
   const [toggle, setToggle] = useState(false);
   const { storeJson } = useStorage();
   const handleListForSale = async () => {
-    fetch("/items").then((res) => console.log(res.json()));
+    axios.post("/items", { owner: wallet, price: 10, ...data });
     alert("NFT listed for Sale Succesfully");
   };
 

@@ -15,10 +15,13 @@ const Index = () => {
       .methods.getMetadata(id)
       .call()
       .then((metadataUri: string) => {
-        console.log(metadataUri);
-        const data = axios
-          .get(metadataUri)
-          .then((response: any) => response.data);
+        const data = axios.get(metadataUri).then((response: any) => {
+          return {
+            tokenId: id,
+            metadata: metadataUri,
+            ...response.data,
+          };
+        });
         return data;
       });
     return metadata;
@@ -29,6 +32,7 @@ const Index = () => {
     setTokenIds(metadata);
     for (let i in metadata) {
       let data = await getData(metadata[i]);
+      let result = {};
       arr.push(data);
     }
     setTokenMeta(arr);

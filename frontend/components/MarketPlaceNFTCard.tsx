@@ -35,14 +35,14 @@ function MarketPlaceNFTCard({ color, data }: { color: number; data: any }) {
   const { contextState, setContextState } = useContext(AppContext);
   const [selectedSize, setSelectedSize] = useState(0);
   const { contract } = useContract();
-  const { wallet }:any = useWalletContext();
+  const { wallet }: any = useWalletContext();
   const [toggle, setToggle] = useState(false);
   const [nftId, setNftId] = useState(1);
   const { storeJson } = useStorage();
 
   const router = useRouter();
 
-  const handleBuyNow = async (e:any) => {
+  const handleBuyNow = async (e: any) => {
     e.preventDefault();
     console.log("clicked");
 
@@ -78,7 +78,7 @@ function MarketPlaceNFTCard({ color, data }: { color: number; data: any }) {
             ))}
           </div>
         </div>
-        <div className="flex items-center justify-between space-x-2 w-full pt-4">
+        {/* <div className="flex items-center justify-between space-x-2 w-full pt-4">
           {sizes.map((size, index) => (
             <div
               key={index}
@@ -92,14 +92,14 @@ function MarketPlaceNFTCard({ color, data }: { color: number; data: any }) {
               {size}
             </div>
           ))}
-        </div>
+        </div> */}
         <div className="flex items-center justify-between py-4 w-full">
-          <span
+          {/* <span
             className="text-blue-600 text-sm tracking-[-0.1em] cursor-pointer hover:text-blue-400"
             onClick={() => setToggle(true)}
           >
             Size Chart
-          </span>
+          </span> */}
           <span className="text-xl tracking-tighter text-yellow-400 ">
             {contextState.stocks.length > 0 &&
               contextState.stocks[color][selectedSize]}

@@ -28,7 +28,7 @@ export default function Nav() {
         <Link href={"/store"}>Store</Link>
         <Link href={"/inventory"}>Inventory</Link>
         <Link href={"/marketplace"}>Marketplace</Link>
-        <Link href={"/order"}>Order</Link>
+        <Link href={"/order"}>My Orders</Link>
       </div>
       {wallet ? (
         <div className="text-white">{trimAddress(wallet)}</div>
